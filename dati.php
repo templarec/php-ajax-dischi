@@ -1,4 +1,5 @@
 <?php
+
 //importo file JSON preso da postman
 $raw = file_get_contents("raw.json");
 //lo trasformo in oggetto php
@@ -10,3 +11,7 @@ foreach ($database as $key => $disco) {
 }
 //lo risalvo in $database
 $database = $db;
+if (isset($_GET['api']) && $_GET['api'] == 'fff0'){
+    $objDatabase = (object)$database;
+    echo json_encode($objDatabase);
+}

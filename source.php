@@ -1,5 +1,6 @@
 <?php
 require './dati.php';
+$genere = [];
 ?>
 <!doctype html>
 <html lang="en">
@@ -16,8 +17,19 @@ require './dati.php';
     <nav>
         <select  name='album' id='selAlbum'>
             <option value='' selected>All</option>
-            <option ></option>
+
+            <?php
+
+                foreach ($database as $key => $disco) {
+                    if (!array_search($disco->genre,$genere)){
+                        array_push($genere,$disco->genre);
+                        echo "<option value='$disco->genre'>$disco->genre</option>";
+                    }
+                }
+            ?>
+            <
         </select>
+
     </nav>
 
 <main>

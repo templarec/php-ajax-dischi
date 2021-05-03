@@ -11,22 +11,24 @@ var app = new Vue({
 		currentGenre: '' //genere selezionato
 	},
 	mounted () {
-		axios.get('https://flynn.boolean.careers/exercises/api/array/music')
+		const apikey = 'fff0';
+		axios.get(`dati.php?api=${apikey}`)
 			.then((risposta) => {
-				this.album = risposta.data.response; //invia array oggetti da API al mio array
-				this.album.forEach((item)=>{
-					if (!this.generi.includes(item.genre)) { //se non è incluso pusha il genere
-						this.generi.push(item.genre)
-					}
 
-				})
+				this.album = risposta.data; //invia array oggetti da API al mio array
+				for (let key in this.album) {
+					for (const chiave in this.album[key]) {
+						tempGenere = this.album[key]['genre']
+						if (!this.generi.includes(tempGenere)) { //se non è incluso pusha il genere
+							this.generi.push(tempGenere)
+						}
+					}
+				}
 				//ordinamento in base all'anno
 				this.album.sort((a,b) => {
 					return a.year - b.year;
 				})
 			});
-
-
 	},
 	computed: {},
 	methods: {}
