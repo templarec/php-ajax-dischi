@@ -24,10 +24,8 @@ require './dati.php';
 
 
 <?php
-
+    //ciclo array di oggetti e stampo
     foreach ($database as $key => $disco) {
-
-
             $title = $disco->title;
             $author = $disco->author;
             $year = $disco->year;
@@ -41,13 +39,9 @@ require './dati.php';
                 <p class='autore'>$author</p>
                 <p class='anno'>$year</p>
                 <p class='genere'>$genre</p>
-                
             </div>
         </div>";
-
-
     }
-
 ?>
 </main>
 </div>
