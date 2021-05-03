@@ -17,14 +17,14 @@
     <body>
         <div id="root">
             <nav>
-                <select v-model="currentGenre" name="album" id="selAlbum">
-                    <option value="" selected>All</option>
+                <select v-model="currentGenre" v-on:change="changeGenere" name="album" id="selAlbum">
+                    <option value="All" selected>All</option>
                     <option v-for="genere in generi" >{{genere}}</option>
                 </select>
             </nav>
 
             <main>
-                <div v-for="albums in album" v-if="(albums.genre == currentGenre) || (currentGenre == '')"  class="card">
+                <div v-for="albums in album" class="card"><!--v-if="(albums.genre == currentGenre) || (currentGenre == '')"-->
                     <img :src="albums.poster" alt="album cover">
                     <div class="overlay">
                         <p class="titolo">{{albums.title}}</p>
