@@ -14,25 +14,7 @@ $genere = [];
 </head>
 <body>
 <div id='root'>
-    <nav>
-        <select  name='album' id='selAlbum'>
-            <option value='' selected>All</option>
-
-            <?php
-
-                foreach ($database as $key => $disco) {
-                    if (!array_search($disco->genre,$genere)){
-                        array_push($genere,$disco->genre);
-                        echo "<option value='$disco->genre'>$disco->genre</option>";
-                    }
-                }
-            ?>
-            <
-        </select>
-
-    </nav>
-
-<main>
+    <main>
 
 
 <?php
